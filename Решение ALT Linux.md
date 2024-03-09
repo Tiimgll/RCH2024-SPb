@@ -14,7 +14,7 @@
 hostnamectl set-hostname ISP;exec bash
 ```
 
-Для каждого сетевого интерфейса необходимо создать директорию по пути /etc/net/ifaces/<NAME_INTERFACE>/options:
+>[!NOTE]Для каждого сетевого интерфейса необходимо создать директорию по >пути /etc/net/ifaces/<NAME_INTERFACE>/options:
 >[!NOTE]
 >enp0s3 – WAN, остальные интерфейсы – по MAC-адресу.
 
@@ -135,7 +135,7 @@ sed -i "s/DHCPDARGS=/DHCPDARGS=ens35 ens36 ens37/g" /etc/sysconfig/dhcpd
 После чего, необходимо привести файл “/etc/dhcp/dhcpd.conf” к следующему виду:
 >[!NOTE]
 >Если планируется далее развёртывать и DNS-сервер, то выдаём в качестве option domain-name-servers соответствующие адреса;
->[!NOTE]
+
 >В противном случае, можно расскомментировать строку “option domain-name-servers 77.88.8.8 77.88.8.88;“
 
 ``` bash
@@ -245,7 +245,11 @@ lsblk
 
 ``` bash
 cfdisk /dev/sdb
+```
+``` bash
 cfdisk /dev/sdc
+```
+``` bash
 cfdisk /dev/sdd
 ```
 
@@ -386,7 +390,7 @@ systemctl enable --now mariadb
 
 ``` bash
 mysqladmin -uroot password
-``` bash
+``` 
 
 Заходим в MariaDB
 
@@ -459,6 +463,7 @@ chown -R apache:apache index.php /var/www/html/adminer/
 ```
 ``` bash
 chmod -R 775 /var/www/html/adminer/
+```
 
 Перезагружаем службу:
 
